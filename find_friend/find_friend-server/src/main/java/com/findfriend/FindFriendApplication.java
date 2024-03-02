@@ -1,13 +1,13 @@
-package com.findfriend.find_friendserver;
+package com.findFriend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FindFriendServerApplication {
+public class FindFriendApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(FindFriendServerApplication.class, args);
+        SpringApplication.run(FindFriendApplication.class, args);
     }
 
 }
