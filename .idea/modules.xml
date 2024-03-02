@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/findFriend/findFriend.iml" filepath="$PROJECT_DIR$/findFriend/findFriend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/findFriend/findFriend-server/findFriend-server.iml" filepath="$PROJECT_DIR$/findFriend/findFriend-server/findFriend-server.iml" />
+    </modules>
+  </component>
+</project>
