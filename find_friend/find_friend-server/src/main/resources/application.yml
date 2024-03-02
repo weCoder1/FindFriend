@@ -1,0 +1,60 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+  main:
+    allow-circular-references: true
+  datasource:
+    druid:
+      driver-class-name: ${findFriend.datasource.driver-class-name}
+      url: jdbc:mysql://${findFriend.datasource.host}:${findFriend.datasource.port}/${findFriend.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: ${findFriend.datasource.username}
+      password: ${findFriend.datasource.password}
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db
+
+
+mybatis-plus:
+  #mybatis配置文件
+  #config-location: classpath:mybatis-config.xml
+  #mapper配置文件
+    mapper-locations: classpath*:/mapper/**/*Mapper.xml
+  #批量注册指定包下的类
+    type-aliases-package: com.findFriend.entity
+  #类属性与表字段的驼峰映射，mybatiplus默认true开启，mybatis需要手动配置，且config-location和configuration不能同时出现
+    configuration:
+      map-underscore-to-camel-case: true
+    global-config:
+      db-config:
+        id-type: assign_id
+        update-strategy: not_null
+
+logging:
+  level:
+    com:
+      findFriend:
+        mapper: debug
+        service: info
+        controller: info
+
+findFriend:
+  jwt:
+    # 设置jwt签名加密时使用的秘钥
+    admin-secret-key: itcast
+    # 设置jwt过期时间
+    admin-ttl: 7200000
+    # 设置前端传递过来的令牌名称
+    admin-token-name: token
+    user-secret-key: itheima
+    user-ttl: 7200000
+    user-token-name: authentication
+
+
+
+
+
+

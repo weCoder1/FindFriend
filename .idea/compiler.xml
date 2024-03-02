@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="find_friend" target="1.8" />
+      <module name="find_friend-common" target="17" />
+      <module name="find_friend-pojo" target="17" />
+      <module name="find_friend-server" target="17" />
+      <module name="findFriend" target="1.8" />
+      <module name="findFriend-server" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="findFriend-server" options="-parameters" />
+      <module name="find_friend-common" options="" />
+      <module name="find_friend-pojo" options="" />
+      <module name="find_friend-server" options="" />
+    </option>
+  </component>
+</project>

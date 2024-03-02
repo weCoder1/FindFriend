@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/findFriend/findFriend-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/findFriend/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/findFriend/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/find_friend/find_friend-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/find_friend/find_friend-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/find_friend/find_friend-pojo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/find_friend/find_friend-pojo/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/find_friend/find_friend-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/find_friend/find_friend-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/find_friend/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/find_friend/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
