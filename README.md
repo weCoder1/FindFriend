@@ -1,4 +1,19 @@
 # FindFriend
+
+
+## Setup 
+
+### How to configure Docker for Database access:
+使用命令cd docker		进入docker文件夹
+执行命令docker-compose up -d	创建容器
+
+注意！！开发在arm架构的macbook上进行，如果不是arm架构的macbook请删除docker-compose.yml文件中的 platform: linux/amd64
+
+使用命令docker exec -it mysql5.7 mysql -uroot -p进入容器
+执行CREATE DATABASE  IF NOT EXISTS `findFriend`创建数据库
+创建数据库后，你可以通过输入exit命令退出MySQL命令行界面
+
+## Features 
 user：
 1登录注册功能
 2创建、查看、删除吧，发布、查看、删除帖子
