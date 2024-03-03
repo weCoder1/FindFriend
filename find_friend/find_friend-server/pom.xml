@@ -75,10 +75,10 @@
             <artifactId>druid-spring-boot-starter</artifactId>
         </dependency>
 
-        <dependency>
+<!--        <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>org.aspectj</groupId>
@@ -93,6 +93,12 @@
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-spring-boot-starter</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>swagger-annotations</artifactId>
+                    <groupId>io.swagger</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
 <!--        <dependency>
@@ -136,15 +142,10 @@
             <artifactId>flyway-core</artifactId>
             <version>5.2.4</version>
         </dependency>
+
         <dependency>
             <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-core</artifactId>
-            <version>3.5.5</version>
-        </dependency>
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-extension</artifactId>
-            <version>3.5.5</version>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
 
 

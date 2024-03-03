@@ -19,10 +19,7 @@ spring:
 
 
 mybatis-plus:
-  #mybatis配置文件
-  #config-location: classpath:mybatis-config.xml
-  #mapper配置文件
-    mapper-locations: classpath*:/mapper/**/*Mapper.xml
+    mapper-locations: classpath:/mapper/*.xml
   #批量注册指定包下的类
     type-aliases-package: com.findFriend.entity
   #类属性与表字段的驼峰映射，mybatiplus默认true开启，mybatis需要手动配置，且config-location和configuration不能同时出现
