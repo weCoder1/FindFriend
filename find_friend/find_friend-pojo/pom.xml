@@ -25,11 +25,21 @@
     <dependency>
         <groupId>com.github.xiaoymin</groupId>
         <artifactId>knife4j-spring-boot-starter</artifactId>
+        <exclusions>
+            <exclusion>
+                <artifactId>jackson-databind</artifactId>
+                <groupId>com.fasterxml.jackson.core</groupId>
+            </exclusion>
+            <exclusion>
+                <artifactId>swagger-annotations</artifactId>
+                <groupId>io.swagger</groupId>
+            </exclusion>
+        </exclusions>
     </dependency>
+
         <dependency>
             <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-annotation</artifactId>
-            <version>3.5.5</version>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
     </dependencies>
 </project>
