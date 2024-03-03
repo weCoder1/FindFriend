@@ -54,10 +54,4 @@ public class User implements Serializable {
     @TableField("update_time")
     private LocalDateTime updateTime;
 
-
-    @TableField("create_user")
-    private Long createUser;
-
-    @TableField("update_user")
-    private Long updateUser;
 }
