@@ -24,6 +24,12 @@ public class UserServiceImpl extends ServiceImpl <UserMapper,User> implements Us
         QueryWrapper <User> queryWrapper = new QueryWrapper<User>()
                 .isNotNull("username");
         //检查用户名是否重复
+/*        if(lambdaQuery()
+                .eq(User::getUsername,user.getUsername())
+                .count()>0){
+            throw new AccountExistException(MessageConstant.ACCOUNT_EXIST);
+        }*/
+
          if(userMapper.selectCount(queryWrapper)>0){
              throw new AccountExistException(MessageConstant.ACCOUNT_EXIST);
          }
