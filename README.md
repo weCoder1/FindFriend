@@ -13,6 +13,10 @@
 执行 ```CREATE DATABASE  IF NOT EXISTS `findFriend` ```创建数据库
 创建数据库后，你可以通过输入exit命令退出MySQL命令行界面
 
+## Achitecture
+
+### REST API Calls -- use port localhost:8080
+
 ## Features 
 user：
 1登录注册功能
