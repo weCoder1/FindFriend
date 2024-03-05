@@ -22,7 +22,7 @@ public class UserServiceImpl extends ServiceImpl <UserMapper,User> implements Us
         User user = new User();
         BeanUtils.copyProperties(userDTO,user);
         QueryWrapper <User> queryWrapper = new QueryWrapper<User>()
-                .isNotNull("username");
+                .eq("username",user.getUsername());
         //检查用户名是否重复
 /*        if(lambdaQuery()
                 .eq(User::getUsername,user.getUsername())
