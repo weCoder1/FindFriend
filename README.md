@@ -16,7 +16,7 @@
 ## Achitecture
 
 ### REST API Calls -- use port localhost:8080
-###启动程序后在http://localhost:8080/doc.html#/home查看API接口文档
+启动程序后在  http://localhost:8080/doc.html#/home  查看API接口文档
 ## Features 
 user：
 1登录注册功能
