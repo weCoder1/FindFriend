@@ -93,12 +93,12 @@
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-spring-boot-starter</artifactId>
-            <exclusions>
+<!--            <exclusions>
                 <exclusion>
                     <artifactId>swagger-annotations</artifactId>
                     <groupId>io.swagger</groupId>
                 </exclusion>
-            </exclusions>
+            </exclusions>-->
         </dependency>
 
 <!--        <dependency>

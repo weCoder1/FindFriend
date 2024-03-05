@@ -4,54 +4,60 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.*;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
+@EqualsAndHashCode(callSuper = false)
+@Accessors(chain = true)
 @TableName("account")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ApiModel(value="User对象", description="账号表")
+
 public class User implements Serializable {
 
+    private static final long serialVersionUID = 1L;
 
-    @TableId(type = IdType.AUTO)
+    @ApiModelProperty(value = "主键")
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    @TableField("name")
+    @ApiModelProperty(value = "姓名")
     private String name;
 
-    @TableField("username")
+    @ApiModelProperty(value = "用户名")
     private String username;
 
-    @TableField("password")
+    @ApiModelProperty(value = "密码")
     private String password;
 
-    @TableField("phone")
+    @ApiModelProperty(value = "手机号")
     private String phone;
 
-    //1男，0女
-    @TableField("sex")
+    @ApiModelProperty(value = "性别")
     private String sex;
 
-    @TableField("image")
+    @ApiModelProperty(value = "图片路径")
     private String image;
 
-    @TableField("type")
+    @ApiModelProperty(value = "账号类型 1用户账户 0管理员")
     private Integer type;
 
-    @TableField("status")
+    @ApiModelProperty(value = "账号状态 1正常 0锁定")
     private Integer status;
 
-    @TableField("create_time")
+    @ApiModelProperty(value = "创建时间")
     private LocalDateTime createTime;
 
-    @TableField("update_time")
+    @ApiModelProperty(value = "最后修改时间")
     private LocalDateTime updateTime;
+
 
 }

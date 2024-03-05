@@ -25,7 +25,7 @@
     <dependency>
         <groupId>com.github.xiaoymin</groupId>
         <artifactId>knife4j-spring-boot-starter</artifactId>
-        <exclusions>
+       <!-- <exclusions>
             <exclusion>
                 <artifactId>jackson-databind</artifactId>
                 <groupId>com.fasterxml.jackson.core</groupId>
@@ -34,12 +34,17 @@
                 <artifactId>swagger-annotations</artifactId>
                 <groupId>io.swagger</groupId>
             </exclusion>
-        </exclusions>
+        </exclusions>-->
     </dependency>
 
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>1.5.20</version>
         </dependency>
     </dependencies>
 </project>
