@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ApiModel(value="UserDTO对象", description="UserDTO")
+@ApiModel(description="用户注册时传递的数据模型")
 public class UserDTO {
 
 
