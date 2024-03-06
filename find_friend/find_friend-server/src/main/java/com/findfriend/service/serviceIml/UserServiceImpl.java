@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.findFriend.constant.MessageConstant;
 import com.findFriend.constant.StatusConstant;
+import com.findFriend.constant.TypeConstant;
 import com.findFriend.dto.UserDTO;
 import com.findFriend.dto.UserLoginDTO;
 import com.findFriend.entity.User;
@@ -16,6 +17,8 @@ import com.findFriend.service.UserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
 
 @Service
 public class UserServiceImpl extends ServiceImpl <UserMapper,User> implements UserService {
@@ -38,9 +41,10 @@ public class UserServiceImpl extends ServiceImpl <UserMapper,User> implements Us
          if(userMapper.selectCount(queryWrapper)>0){
              throw new AccountExistException(MessageConstant.ACCOUNT_EXIST);
          }
-         user.setType(1);
-         user.setStatus(1);
-         //TODO aop设置时间
+         user.setType(TypeConstant.User);
+         user.setStatus(StatusConstant.ENABLE);
+         user.setCreateTime(LocalDateTime.now());
+         user.setUpdateTime(LocalDateTime.now());
         userMapper.insert(user);
 
     }
