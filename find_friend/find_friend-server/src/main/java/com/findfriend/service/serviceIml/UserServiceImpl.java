@@ -3,9 +3,14 @@ package com.findFriend.service.serviceIml;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.findFriend.constant.MessageConstant;
+import com.findFriend.constant.StatusConstant;
 import com.findFriend.dto.UserDTO;
+import com.findFriend.dto.UserLoginDTO;
 import com.findFriend.entity.User;
 import com.findFriend.exception.AccountExistException;
+import com.findFriend.exception.AccountLockedException;
+import com.findFriend.exception.AccountNotFoundException;
+import com.findFriend.exception.PasswordErrorException;
 import com.findFriend.mapper.UserMapper;
 import com.findFriend.service.UserService;
 import org.springframework.beans.BeanUtils;
@@ -35,8 +40,25 @@ public class UserServiceImpl extends ServiceImpl <UserMapper,User> implements Us
          }
          user.setType(1);
          user.setStatus(1);
-         //TODO aop设置时间ThreadLocal设置创始人创建人
+         //TODO aop设置时间
         userMapper.insert(user);
 
+    }
+
+    @Override
+    public User login(UserLoginDTO userLoginDTO) {
+        //根据username查询账户
+        User user = this.lambdaQuery()
+                .eq(User::getUsername, userLoginDTO.getUsername())
+                .one();
+        //错误处理
+        if(user == null){
+            throw new AccountNotFoundException(MessageConstant.ACCOUNT_NOT_FOUND);
+        }
+        if (!user.getPassword().equals(userLoginDTO.getPassword()))
+            throw new PasswordErrorException(MessageConstant.PASSWORD_ERROR);
+        if(user.getStatus().equals(StatusConstant.DISABLE))
+            throw new AccountLockedException(MessageConstant.ACCOUNT_LOCKED);
+        return user;
     }
 }

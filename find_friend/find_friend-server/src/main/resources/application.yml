@@ -38,17 +38,14 @@ logging:
         service: info
         controller: info
 
-findFriend:
+findfriend:
   jwt:
     # 设置jwt签名加密时使用的秘钥
-    admin-secret-key: itcast
+    secret-key: findFriend
     # 设置jwt过期时间
-    admin-ttl: 7200000
+    ttl: 7200000
     # 设置前端传递过来的令牌名称
-    admin-token-name: token
-    user-secret-key: itheima
-    user-ttl: 7200000
-    user-token-name: authentication
+    token-name: token
 
 
 
