@@ -13,10 +13,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -64,6 +61,23 @@ public class UserController {
         log.info("注册账号{}",userDTO);
         userService.register(userDTO);
         return Result.success();
+    }
+
+    //用户冻结/解冻
+    @ApiOperation("用户冻结/解冻")
+    @PostMapping("/status/{status}")
+    public Result setStatusById(@PathVariable Integer status ,Long id)
+    {
+        log.info("修改账号状态为{}(1正常，0冻结)",status);
+        userService.setStatusById(status,id);
+        return Result.success();
+    }
+
+    @ApiOperation("根据id查询单个用户")
+    @GetMapping("/{id}")
+    public Result<User> selectUserById(@PathVariable Integer id)
+    {
+        return Result.success(userService.getById(id));
     }
 
 

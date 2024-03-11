@@ -10,4 +10,6 @@ public interface UserService extends IService<User> {
     void register(UserDTO userDTO);
 
     User login(UserLoginDTO userLoginDTO);
+
+    void setStatusById(java.lang.Integer status, java.lang.Long id);
 }

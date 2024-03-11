@@ -65,4 +65,9 @@ public class UserServiceImpl extends ServiceImpl <UserMapper,User> implements Us
             throw new AccountLockedException(MessageConstant.ACCOUNT_LOCKED);
         return user;
     }
+
+    @Override
+    public void setStatusById(Integer status, Long id) {
+        userMapper.setStatusById(status,id);
+    }
 }
