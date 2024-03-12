@@ -1,10 +1,12 @@
 package com.findFriend.dto;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
+@ApiModel(description = "用户批量查询传递的数据模型")
 public class UserPageQueryDTO implements Serializable {
 
     //用户姓名

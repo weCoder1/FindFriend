@@ -7,18 +7,25 @@ import com.findFriend.constant.StatusConstant;
 import com.findFriend.constant.TypeConstant;
 import com.findFriend.dto.UserDTO;
 import com.findFriend.dto.UserLoginDTO;
+import com.findFriend.dto.UserPageQueryDTO;
 import com.findFriend.entity.User;
 import com.findFriend.exception.AccountExistException;
 import com.findFriend.exception.AccountLockedException;
 import com.findFriend.exception.AccountNotFoundException;
 import com.findFriend.exception.PasswordErrorException;
 import com.findFriend.mapper.UserMapper;
+import com.findFriend.result.PageResult;
 import com.findFriend.service.UserService;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.List;
 
 @Service
 public class UserServiceImpl extends ServiceImpl <UserMapper,User> implements UserService {
@@ -69,5 +76,26 @@ public class UserServiceImpl extends ServiceImpl <UserMapper,User> implements Us
     @Override
     public void setStatusById(Integer status, Long id) {
         userMapper.setStatusById(status,id);
+    }
+
+    @Override
+    public PageResult pageQuery(UserPageQueryDTO userPageQueryDTO) {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("pageNum",userPageQueryDTO.getPage());
+        map.put("pageSize",userPageQueryDTO.getPageSize());
+        map.put("username","");
+        map.put("name","");
+
+        PageHelper.startPage(map);
+        Page<User> page=userMapper.pageQuery(map);
+
+        //获取分页信息
+        PageInfo<User> userPageInfo = new PageInfo<>(page);
+
+//        Long total=page.getTotal();
+//        List<User> userList=page.getResult();
+        long total = userPageInfo.getTotal();
+        List<User> userList = userPageInfo.getList();
+        return new PageResult(total,userList);
     }
 }
