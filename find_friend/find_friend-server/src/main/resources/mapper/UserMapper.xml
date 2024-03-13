@@ -2,4 +2,42 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.findFriend.mapper.UserMapper">
 
+    <select id="pageQuery" resultType="com.findFriend.entity.User">
+        select *
+        from account
+        <where>
+                <if test="username !=null and username!=''">
+                    and username like concat('%',#{username},'%')
+                </if>
+                <if test="name !=null and name!=''">
+                    and name like concat('%',#{name},'%')
+            </if>
+        </where>
+        order by create_time desc
+    </select>
+
+    <update id="updateUser">
+        update account
+        <set>
+            <if test="name !=null and name!=''">
+                 name=#{name},
+            </if>
+            <if test="username !=null and username!=''">
+                 username=#{username},
+            </if>
+            <if test="phone !=null and phone!=''">
+                 phone=#{phone},
+            </if>
+            <if test="phone !=null and phone!=''">
+                 sex=#{sex},
+            </if>
+            <if test="phone !=null and phone!=''">
+                 image=#{image},
+            </if>
+                 update_time=#{updateTime}
+
+        </set>
+            where id=#{id}
+
+    </update>
 </mapper>

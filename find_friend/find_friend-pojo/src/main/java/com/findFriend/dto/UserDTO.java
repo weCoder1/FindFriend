@@ -15,6 +15,8 @@ import lombok.NoArgsConstructor;
 @ApiModel(description="用户注册时传递的数据模型")
 public class UserDTO {
 
+    @ApiModelProperty(value = "id")
+    private Long id;
 
     @ApiModelProperty(value = "姓名")
     private String name;
