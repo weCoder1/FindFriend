@@ -92,6 +92,12 @@ public class UserController {
         return Result.success(pageResult);
     }
 
-
+    @ApiOperation("修改用户信息")
+    @PutMapping
+    public Result updateUser(@RequestBody UserDTO userDTO){
+        log.info("修改用户信息{}",userDTO);
+        userService.updateUser(userDTO);
+        return Result.success();
+    }
 
 }
