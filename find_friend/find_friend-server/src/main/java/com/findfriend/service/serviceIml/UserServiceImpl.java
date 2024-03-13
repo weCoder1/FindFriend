@@ -98,4 +98,12 @@ public class UserServiceImpl extends ServiceImpl <UserMapper,User> implements Us
         List<User> userList = userPageInfo.getList();
         return new PageResult(total,userList);
     }
+
+    @Override
+    public void updateUser(UserDTO userDTO) {
+        User user = new User();
+        BeanUtils.copyProperties(userDTO,user);
+        user.setUpdateTime(LocalDateTime.now());
+        userMapper.updateUser(user);
+    }
 }
