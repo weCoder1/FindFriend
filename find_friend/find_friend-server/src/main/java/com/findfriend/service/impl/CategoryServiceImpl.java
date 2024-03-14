@@ -27,6 +27,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
     @Override
     public void addCategory(Category category) {
         category.setCreateTime(LocalDateTime.now());
+        category.setUpdateTime(LocalDateTime.now());
         categoryMapper.addCategory(category);
     }
 

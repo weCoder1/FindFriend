@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -44,5 +45,22 @@ public class CategoryController {
         //TODO 删除对应的帖子
         return Result.success();
     }
+
+    @ApiOperation("更新分类")
+    @PutMapping
+    public Result updateCategory(@RequestBody Category category){
+        log.info("更新分类{}",category);
+        category.setUpdateTime(LocalDateTime.now());
+        categoryService.updateById(category);
+        return Result.success();
+    }
+
+    @ApiOperation("根据id查询单个分类")
+    @GetMapping("/{id}")
+    public Result<Category> selectCategoryById(@PathVariable Long id){
+        log.info("根据id查询单个分类{}",id);
+        return Result.success(categoryService.getById(id));
+    }
+
 
 }
