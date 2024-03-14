@@ -1,7 +1,9 @@
 package com.findFriend.service.impl;
 
+import com.findFriend.dto.CategoryPageQueryDTO;
 import com.findFriend.entity.Category;
 import com.findFriend.mapper.CategoryMapper;
+import com.findFriend.result.PageResult;
 import com.findFriend.service.CategoryService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +37,11 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
     public void deleteCategory(List<Long> ids) {
         categoryMapper.deleteCategory(ids);
 
+    }
+
+    @Override
+    public PageResult pageQuery(CategoryPageQueryDTO categoryPageQueryDTO) {
+        //TODO 完成分页查询Category
+        return null;
     }
 }

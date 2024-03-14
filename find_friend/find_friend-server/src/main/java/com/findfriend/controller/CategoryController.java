@@ -1,7 +1,9 @@
 package com.findFriend.controller;
 
 
+import com.findFriend.dto.CategoryPageQueryDTO;
 import com.findFriend.entity.Category;
+import com.findFriend.result.PageResult;
 import com.findFriend.result.Result;
 import com.findFriend.service.CategoryService;
 import io.swagger.annotations.Api;
@@ -62,5 +64,12 @@ public class CategoryController {
         return Result.success(categoryService.getById(id));
     }
 
+    @ApiOperation("批量查询分类")
+    @GetMapping("/page")
+    public Result<PageResult> page(CategoryPageQueryDTO categoryPageQueryDTO){
+        log.info("分页查询{},第{}页,每页{}条数据",categoryPageQueryDTO.getName(),categoryPageQueryDTO.getPage(),categoryPageQueryDTO.getPageSize());
+        PageResult pageResult=categoryService.pageQuery(categoryPageQueryDTO);
+        return Result.success(pageResult);
+    }
 
 }

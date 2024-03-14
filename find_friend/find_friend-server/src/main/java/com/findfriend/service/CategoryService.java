@@ -1,7 +1,9 @@
 package com.findFriend.service;
 
+import com.findFriend.dto.CategoryPageQueryDTO;
 import com.findFriend.entity.Category;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.findFriend.result.PageResult;
 
 import java.util.List;
 
@@ -18,4 +20,6 @@ public interface CategoryService extends IService<Category> {
     void addCategory(Category category);
 
     void deleteCategory(List<Long> ids);
+
+    PageResult pageQuery(CategoryPageQueryDTO categoryPageQueryDTO);
 }
