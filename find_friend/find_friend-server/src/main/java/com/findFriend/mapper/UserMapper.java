@@ -18,5 +18,7 @@ public interface UserMapper extends BaseMapper<User> {
     void setStatusById(Integer status, Long id);
 
     Page<User> pageQuery(HashMap<String,Object> map);
+
+    void updateUser(User user);
 //    Page<User> pageQuery(UserPageQueryDTO userPageQueryDTO);
 }

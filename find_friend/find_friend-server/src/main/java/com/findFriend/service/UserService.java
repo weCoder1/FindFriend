@@ -16,4 +16,6 @@ public interface UserService extends IService<User> {
     void setStatusById(java.lang.Integer status, java.lang.Long id);
 
     PageResult pageQuery(UserPageQueryDTO userPageQueryDTO);
+
+    void updateUser(UserDTO userDTO);
 }

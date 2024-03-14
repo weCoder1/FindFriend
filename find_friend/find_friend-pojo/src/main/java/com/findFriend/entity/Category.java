@@ -1,9 +1,7 @@
 package com.findFriend.entity;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.time.LocalDateTime;
 import java.io.Serializable;
 
@@ -38,17 +36,22 @@ public class Category implements Serializable {
     private Long id;
 
     @ApiModelProperty(value = "分类名称")
-    @TableField("name")
+    @TableField(value = "name",updateStrategy = FieldStrategy.NOT_NULL)
     private String name;
 
     @ApiModelProperty(value = "贴吧种类描述")
-    @TableField("description")
+    @TableField(value = "description",updateStrategy = FieldStrategy.NOT_NULL)
     private String description;
 
     @ApiModelProperty(value = "创建时间")
-    @TableField("create_time")
+    @TableField(value = "create_time",updateStrategy = FieldStrategy.NOT_NULL)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createTime;
+
+    @ApiModelProperty(value = "更新时间")
+    @TableField("update_time")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime updateTime;
 
 
 }
