@@ -11,7 +11,7 @@
                 </if>
                 <if test="name !=null and name!=''">
                     and name like concat('%',#{name},'%')
-            </if>
+                </if>
         </where>
         order by id desc
     </select>

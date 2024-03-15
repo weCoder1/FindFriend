@@ -2,10 +2,13 @@ package com.findFriend.service.serviceIml;
 
 import com.findFriend.dto.CategoryPageQueryDTO;
 import com.findFriend.entity.Category;
+import com.findFriend.entity.User;
 import com.findFriend.mapper.CategoryMapper;
 import com.findFriend.result.PageResult;
 import com.findFriend.service.CategoryService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,7 +44,10 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
 
     @Override
     public PageResult pageQuery(CategoryPageQueryDTO categoryPageQueryDTO) {
-        //TODO 完成分页查询Category
-        return null;
+        PageHelper.startPage(categoryPageQueryDTO.getPage(),categoryPageQueryDTO.getPageSize());
+        Page<Category> page=categoryMapper.pageQuery(categoryPageQueryDTO);
+        long total = page.getTotal();
+        List<Category> result = page.getResult();
+        return new PageResult(total,result);
     }
 }

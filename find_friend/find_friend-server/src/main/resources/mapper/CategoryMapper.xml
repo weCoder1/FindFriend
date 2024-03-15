@@ -12,4 +12,14 @@
                              #{id}
         </foreach>
     </delete>
+
+    <select id="pageQuery" resultType="com.findFriend.entity.Category">
+        select * from category
+        <where>
+            <if test="name !=null and name!=''">
+                 name like concat('%',#{name},'%')
+            </if>
+        </where>
+        order by id desc
+    </select>
 </mapper>
