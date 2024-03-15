@@ -1,4 +1,4 @@
-package com.findFriend.service.impl;
+package com.findFriend.service.serviceIml;
 
 import com.findFriend.dto.CategoryPageQueryDTO;
 import com.findFriend.entity.Category;

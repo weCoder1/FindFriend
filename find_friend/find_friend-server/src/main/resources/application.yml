@@ -28,7 +28,7 @@ mybatis-plus:
     global-config:
       db-config:
         id-type: assign_id
-        update-strategy: not_null
+        update-strategy: not_empty
 
 logging:
   level:
