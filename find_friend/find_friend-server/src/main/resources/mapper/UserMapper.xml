@@ -11,9 +11,9 @@
                 </if>
                 <if test="name !=null and name!=''">
                     and name like concat('%',#{name},'%')
-            </if>
+                </if>
         </where>
-        order by create_time desc
+        order by id desc
     </select>
 
     <update id="updateUser">

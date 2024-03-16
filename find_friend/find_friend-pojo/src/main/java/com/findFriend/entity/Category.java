@@ -36,15 +36,15 @@ public class Category implements Serializable {
     private Long id;
 
     @ApiModelProperty(value = "分类名称")
-    @TableField(value = "name",updateStrategy = FieldStrategy.NOT_NULL)
+    @TableField(value = "name")
     private String name;
 
     @ApiModelProperty(value = "贴吧种类描述")
-    @TableField(value = "description",updateStrategy = FieldStrategy.NOT_NULL)
+    @TableField(value = "description")
     private String description;
 
     @ApiModelProperty(value = "创建时间")
-    @TableField(value = "create_time",updateStrategy = FieldStrategy.NOT_NULL)
+    @TableField(value = "create_time")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createTime;
 

@@ -85,8 +85,8 @@ public class UserController {
 
 
     @ApiOperation("批量查询用户")
-    @PostMapping("/page")
-    public Result<PageResult> page(@RequestBody UserPageQueryDTO userPageQueryDTO){
+    @GetMapping ("/page")
+    public Result<PageResult> page(UserPageQueryDTO userPageQueryDTO){
         log.info("开始批量查询员工，用户名：{},姓名{},页大小{},页码{}",userPageQueryDTO.getUsername(),userPageQueryDTO.getName(),userPageQueryDTO.getPageSize(),userPageQueryDTO.getPage());
         PageResult pageResult=userService.pageQuery(userPageQueryDTO);
         return Result.success(pageResult);
