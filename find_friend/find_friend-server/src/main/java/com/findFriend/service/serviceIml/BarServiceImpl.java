@@ -35,4 +35,13 @@ public class BarServiceImpl extends ServiceImpl<BarMapper, Bar> implements BarSe
         //TODO 添加创建人和更新人
         barMapper.addBar(bar);
     }
+
+    @Override
+    public void updateBar(BarDTO barDTO) {
+        Bar bar=new Bar();
+        BeanUtils.copyProperties(barDTO,bar);
+        bar.setUpdateTime(LocalDateTime.now());
+        //TODO 添加和更新人
+        barMapper.updateBar(bar);
+    }
 }

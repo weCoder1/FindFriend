@@ -15,4 +15,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface BarService extends IService<Bar> {
 
     void addBar(BarDTO barDTO);
+
+    void updateBar(BarDTO barDTO);
 }
