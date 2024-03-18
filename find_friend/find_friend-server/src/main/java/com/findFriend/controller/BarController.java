@@ -41,6 +41,13 @@ public class BarController {
         barService.updateBar(barDTO);
         return Result.success();
     }
+    @ApiOperation("更新吧状态")
+    @PostMapping("/status/{status}")
+    public Result updateBarstatus(@PathVariable Integer status,Long id){
+        log.info("更新吧状态：{},{}",status,id);
+        barService.updateBarstatus(status,id);
+        return Result.success();
+    }
 
 
 }

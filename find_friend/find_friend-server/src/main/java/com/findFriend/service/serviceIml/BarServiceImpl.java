@@ -44,4 +44,14 @@ public class BarServiceImpl extends ServiceImpl<BarMapper, Bar> implements BarSe
         //TODO 添加和更新人
         barMapper.updateBar(bar);
     }
+
+    @Override
+    public void updateBarstatus(Integer status, Long id) {
+        //TODO updateuser
+        Bar bar = Bar.builder().
+                id(id).status(status)
+                .updateTime(LocalDateTime.now())
+                .build();
+        barMapper.updateBar(bar);
+    }
 }

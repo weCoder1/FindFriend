@@ -17,4 +17,6 @@ public interface BarService extends IService<Bar> {
     void addBar(BarDTO barDTO);
 
     void updateBar(BarDTO barDTO);
+
+    void updateBarstatus(Integer status, Long id);
 }

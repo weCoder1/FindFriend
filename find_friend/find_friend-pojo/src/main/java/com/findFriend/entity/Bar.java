@@ -7,10 +7,7 @@ import java.time.LocalDateTime;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 /**
@@ -26,6 +23,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @TableName("bar")
 @NoArgsConstructor
+@Builder
 @AllArgsConstructor
 @ApiModel(value="Bar对象", description="贴吧表")
 public class Bar implements Serializable {
