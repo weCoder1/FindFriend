@@ -19,4 +19,6 @@ public interface BarMapper extends BaseMapper<Bar> {
     @Insert("INSERT INTO bar (name, category_id, description, status, create_time, update_time, create_user, update_user, image) " +
             "VALUES (#{name},#{categoryId}, #{description}, #{status}, #{createTime}, #{updateTime}, #{createUser}, #{updateUser}, #{image})")
     void addBar(Bar bar);
+
+    void updateBar(Bar bar);
 }
