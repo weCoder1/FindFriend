@@ -1,8 +1,12 @@
 package com.findFriend.service.serviceIml;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.findFriend.constant.BarStatusConstant;
+import com.findFriend.constant.MessageConstant;
+
 import com.findFriend.dto.BarDTO;
 import com.findFriend.entity.Bar;
+import com.findFriend.exception.BarExistException;
 import com.findFriend.mapper.BarMapper;
 import com.findFriend.service.BarService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -29,6 +33,12 @@ public class BarServiceImpl extends ServiceImpl<BarMapper, Bar> implements BarSe
     public void addBar(BarDTO barDTO) {
         Bar bar=new Bar();
         BeanUtils.copyProperties(barDTO,bar);
+        //检查吧名是否重复
+        if(lambdaQuery()
+                .eq(Bar::getName,bar.getName())
+                .count()>0){
+            throw new BarExistException(MessageConstant.BAR_EXIST);
+        }
         bar.setStatus(BarStatusConstant.INVESTIGATE);
         bar.setCreateTime(LocalDateTime.now());
         bar.setUpdateTime(LocalDateTime.now());

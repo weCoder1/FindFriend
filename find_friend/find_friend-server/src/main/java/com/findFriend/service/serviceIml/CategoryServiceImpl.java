@@ -1,8 +1,10 @@
 package com.findFriend.service.serviceIml;
 
+import com.findFriend.constant.MessageConstant;
 import com.findFriend.dto.CategoryPageQueryDTO;
 import com.findFriend.entity.Category;
 import com.findFriend.entity.User;
+import com.findFriend.exception.CategoryExistException;
 import com.findFriend.mapper.CategoryMapper;
 import com.findFriend.result.PageResult;
 import com.findFriend.service.CategoryService;
@@ -33,6 +35,12 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
     public void addCategory(Category category) {
         category.setCreateTime(LocalDateTime.now());
         category.setUpdateTime(LocalDateTime.now());
+        //判断categoryname是否存在
+        if(lambdaQuery()
+                .eq(Category::getName,category.getName())
+                .count()>0){
+            throw new CategoryExistException(MessageConstant.CATEGORY_EXIST);
+        }
         categoryMapper.addCategory(category);
     }
 
